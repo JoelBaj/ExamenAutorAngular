@@ -1,0 +1,8 @@
+button{
+    border-radius: 5px;
+    padding: 5px;
+}
+button.agg{
+    background-color:rgb(102, 170, 96);
+    color: white;
+  }

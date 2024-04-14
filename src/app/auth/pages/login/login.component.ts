@@ -39,11 +39,17 @@ export class LoginComponent implements OnInit {
     
   }
 
-  login () {
-    this.loading = true;
-    setTimeout(() => {
-      this.router.navigate(['./autor']);
-    }, 1500);
-  }
+  // login () {
+  //   this.loading = true;
+  //   setTimeout(() => {
+  //     this.router.navigate(['./autor']);
+  //   }, 1500);
+  // }
   
+  
+    login() { 
+       this.router.navigate(['./autor'])
+    
+     
+    }
 }

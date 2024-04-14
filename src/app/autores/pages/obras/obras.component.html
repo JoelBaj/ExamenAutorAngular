@@ -1,16 +1,4 @@
 <app-sidemenu></app-sidemenu>
-<!-- <div *ngIf="obras.length > 0">
-    <h3>Obras del autor</h3>
-    <ul>
-      <li *ngFor="let obra of obras">
-        <h3>{{ obra.title }}</h3>
-        <p>Líneas:</p>
-        <ul>
-          <li *ngFor="let line of obra.lines">{{ line }}</li>
-        </ul>
-      </li>
-    </ul>
-</div> -->
 
 <div *ngIf="obras.length > 0">
   <table class="table table-hover">
@@ -27,7 +15,7 @@
         <ul>
           <li *ngFor="let line of obra.lines">{{ line }}</li>
         </ul>
-        <button type="button" (click)="agregarAFavoritosObra(obra)">Agregar a Favoritos</button>
+        <button class="agg" type="button" (click)="agregarAFavoritosObra(obra)">Agregar a Favoritos</button>
       </tr>
     </tbody>
   </table>

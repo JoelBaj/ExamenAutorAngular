@@ -1,20 +1,22 @@
-
 <app-sidemenu></app-sidemenu>
+
 <div class="grid-container">
-  <div >
+  <div>
     <table class="table table-hover">
       <thead class="table-dark">
         <tr>
-          <th>Nombre del autor</th>
+          <th>#</th>
+          <th>Nombre del autor</th>  
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let autor of autores">
+        <tr *ngFor="let autor of autores; let i = index">
+          <td>{{ i + 1 }}</td>
           <td>{{ autor.authors[0] }}</td>
           <td>
-            <button type="submit" (click)="mostrarObrasAutor(autor.authors[0])">Ver más</button>
-            <button type="button" (click)="agregarAFavoritosAutor(autor.authors[0])">Agregar a Favoritos</button>
+            <button class="ver" type="submit" (click)="mostrarObrasAutor(autor.authors[0])">Ver obras</button>
+            <button class="agg" type="button" (click)="agregarAFavoritosAutor(autor)">Agregar</button>
           </td>
         </tr>
       </tbody>

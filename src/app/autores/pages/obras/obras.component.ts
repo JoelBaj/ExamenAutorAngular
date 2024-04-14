@@ -21,9 +21,9 @@ export class ObrasComponent implements OnInit {
     if (obraIndex === -1) {
       this.autoresService.obrasSeleccionadas.push(obra);
       localStorage.setItem('obrasFavoritas', JSON.stringify(this.autoresService.obrasSeleccionadas));
-      console.log(`Obra "${obra.title}" agregada a favoritos.`);
+      alert(`Obra "${obra.title}" agregada a favoritos.`);
     } else {
-      console.log(`La obra "${obra.title}" ya está en la lista de favoritos.`);
+      alert(`La obra "${obra.title}" ya está en la lista de favoritos.`);
     }
   }
   

@@ -12,6 +12,7 @@ export class AutoresService {
 
   private urlApi: string = environment.baseUrl;
   obrasSeleccionadas: Obras[] =[];
+  autoresSeleccionados: Autor[] = [];
 
   constructor(private http:HttpClient) { }
 
@@ -27,6 +28,12 @@ export class AutoresService {
     if (!this.obrasSeleccionadas.includes(obra)) {
       this.obrasSeleccionadas.push(obra);
       localStorage.setItem('obrasFavoritas', JSON.stringify(this.obrasSeleccionadas));
+    }
+  }
+  seleccionarAutor(autor: Autor) {
+    if (!this.autoresSeleccionados.includes(autor)) {
+      this.autoresSeleccionados.push(autor);
+      localStorage.setItem('autoresFavoritos', JSON.stringify(this.autoresSeleccionados));
     }
   }
   

@@ -1,5 +1,16 @@
 
-
+button{
+  border-radius: 5px;
+}
+button.ver{
+  background-color: #213250;
+  color: white;
+  margin: 3px;
+}
+button.agg{
+  background-color:rgb(102, 170, 96);
+  color: white;
+}
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;

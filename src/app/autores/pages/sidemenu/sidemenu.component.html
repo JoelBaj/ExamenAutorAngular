@@ -13,11 +13,13 @@
                     <li class="nav-item nav-link" *ngFor="let item of Menu" [routerLink]="[item.ruta]"
                         routerLinkActive="active">
                         {{item.texto}}
-
+                       
                     </li>
+                    
                 </ul>
-
+                <button class="logout" (click)="logout()">cerrar sesion</button>
             </div>
+            
         </div>
 
         <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"

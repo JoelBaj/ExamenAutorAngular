@@ -1,20 +1,49 @@
 <app-sidemenu></app-sidemenu>
-<div *ngIf="obrasFavoritas.length > 0">
+<div>
+  <h2>Autores Favoritos</h2>
+  <div *ngIf="autoresFavoritos.length > 0">
     <table class="table table-hover">
       <thead class="table-dark">
         <tr>
-          <th>Obras Favoritas</th>
+          <th>Autores</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let obra of obrasFavoritas">
-          <h3>{{ obra.title }}</h3>
-          <p>Líneas:</p>
-          <ul>
-            <li *ngFor="let line of obra.lines">{{ line }}</li>
-          </ul>
+        <tr *ngFor="let autor of autoresFavoritos">
+          <td>{{ autor.authors[0] }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="eliminarAutor(autor)">Eliminar</button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
-  
+</div>
+<div>
+  <h2>Obras Favoritas</h2>
+  <div *ngIf="obrasFavoritas.length > 0">
+    <table class="table table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Titulo</th>
+          <th>Líneas</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let obra of obrasFavoritas">
+          <td>{{ obra.title }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let line of obra.lines">{{ line }}</li>
+            </ul>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="eliminarObra(obra)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

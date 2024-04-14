@@ -44,8 +44,15 @@ button.btn-close:focus {
 .offcanvas-title{
     font-weight: bold;
 }
-@media(min-width: 991px) {
+.logout{
+    background-color: red;
+    border-radius: 10px;
+    font-weight: bold;
+    
+}
 
+@media(min-width: 991px) {
+    
     .nav-link::before {
         content: "";
         position: absolute;

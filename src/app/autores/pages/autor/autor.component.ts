@@ -14,6 +14,7 @@ export class AutorComponent implements OnInit {
   autores: Autor[] = [];
   obras: Obras[] = [];
   autorSeleccionado: string = '';
+  autoresSeleccionados: Autor[] = []; 
 
   constructor(private autorservice: AutoresService) {}
 
@@ -46,8 +47,16 @@ export class AutorComponent implements OnInit {
       });
     }
   }
-  agregarAFavoritosAutor(nombreAutor: string) {
-    // Lógica para agregar autor a favoritos
-    console.log(`Autor ${nombreAutor} agregado a favoritos`);
+  agregarAFavoritosAutor(autor: Autor) {
+    const autorIndex = this.autorservice.autoresSeleccionados.findIndex(a => a.authors[0] === autor.authors[0]);
+    if (autorIndex === -1) {
+      this.autorservice.autoresSeleccionados.push(autor);
+      localStorage.setItem('autoresFavoritos', JSON.stringify(this.autorservice.autoresSeleccionados));
+      alert(`Autor ${autor.authors[0]} agregado a favoritos`);
+    } else {
+      alert(`El autor ${autor.authors[0]} ya está en la lista de favoritos`);
+    }
   }
+
+  
 }
