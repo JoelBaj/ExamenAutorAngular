@@ -5,35 +5,18 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
+  private loggedIn = false;
 
-  private isLoggedIn = false;
-  private tokenKey = 'Joel';
-
-  constructor() {
+  login(username: string, password: string): Observable<boolean> {
+    this.loggedIn = username === 'joel' && password === 'joel';
+    return of(this.loggedIn);
   }
 
-  validarToken(): Observable<boolean> {
-    const token = localStorage.getItem(this.tokenKey);
-    if(!token){
-      return of(false);
-    } else {
-      return of(true)
-    }
+  isLoggedIn(): boolean {
+    return this.loggedIn;
   }
 
-  login(usuario: string, password: string): boolean {
-    if (usuario === 'joel' && password === 'joel') {
-      localStorage.setItem(this.tokenKey, 'Joel');
-      this.isLoggedIn = true;
-      return true;
-    } else {
-      this.isLoggedIn = false;
-      return false;
-    }
-  }
-
-
-  get loggedIn(): boolean {
-    return this.isLoggedIn;
+  logout(): void {
+    this.loggedIn = false;
   }
 }

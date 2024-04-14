@@ -9,47 +9,35 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
   loading = false;
 
   miFormulario: FormGroup = this.fb.group({
     usuario:['joel', [Validators.required]],
-      password:['joel', [Validators.required]]
-    })
-    
-    constructor(private fb: FormBuilder, private router:Router,
-      private authService: AuthService) { 
-
-    }
+    password:['joel', [Validators.required]]
+  })
   
-  ngOnInit(): void {}
-  onSubmit() {
-    const usuario = this.miFormulario.value.usuario ?? '';
-    const password = this.miFormulario.value.password ?? '';
-    const isLoggedIn = this.authService.login(usuario, password);
+  constructor(private fb: FormBuilder, private router:Router,
+    private authService: AuthService) { 
 
-    if (isLoggedIn) {
-      this.login();
-    } else {
-      this.error();
-      this.miFormulario.reset();
-    }
+  }
+  
+  ngOnInit(): void {
+
   }
 
-  error() {
-    
+  Iniciar() {
+    const { usuario, password } = this.miFormulario.value;
+    this.authService.login(usuario, password).subscribe((loggedIn: boolean) => {
+      if (loggedIn) {
+       
+        this.router.navigate(['./autor']);
+      } else {
+        
+        alert('Datos incorrectoo');
+      }
+    });
   }
 
-  // login () {
-  //   this.loading = true;
-  //   setTimeout(() => {
-  //     this.router.navigate(['./autor']);
-  //   }, 1500);
-  // }
-  
-  
-    login() { 
-       this.router.navigate(['./autor'])
-    
-     
-    }
+
 }
