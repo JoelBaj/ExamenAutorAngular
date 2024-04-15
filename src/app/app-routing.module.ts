@@ -12,7 +12,8 @@ const routes: Routes = [
   {
    
     path:'autor',
-    loadChildren:()=> import('./autores/autores.module').then(m => m.AutoresModule)
+    loadChildren:()=> import('./autores/autores.module').then(m => m.AutoresModule),
+    canActivate: [AuthGuard]
   },
   
   {
