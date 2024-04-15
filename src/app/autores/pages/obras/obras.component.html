@@ -10,8 +10,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let obra of obras">
-        <h3>{{ obra.title }}</h3>
-        <p>Líneas:</p>
+        <h3>Titulo: <span>{{ obra.title }}</span></h3>
+       
+        <p>Líneas: <span>{{ obra.linecount }}</span> </p>
         <ul>
           <li *ngFor="let line of obra.lines">{{ line }}</li>
         </ul>
